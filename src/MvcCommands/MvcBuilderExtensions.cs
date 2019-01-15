@@ -4,7 +4,7 @@ namespace MvcCommands
 {
     public static class MvcBuilderExtensions
     {
-        public static IMvcBuilder AddEndpointControllerRouting(this IMvcBuilder builder)
+        public static IMvcBuilder AddCommandControllerRouting(this IMvcBuilder builder)
         {
             return builder
                 .AddMvcOptions(opts => 
