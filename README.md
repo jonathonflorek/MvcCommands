@@ -18,7 +18,7 @@ services.AddMvc().AddCommandControllerRouting();
 
 To create a routed command, create a data class decorated with the `RoutedCommandAttribute` attribute and specify the route template and accepted HTTP verbs. Optionally, specify the route's name for link generation elsewhere.
 
-Decorate the class's properties with the `FromRoute`, `FromQuery`, `FromBody`, etc. attributes to tell ASP.NET where to bind the properties from. `FromServices` will not work as it can only be applied to a method parameter, but you can work around
+Decorate the class's properties with the `FromRoute`, `FromQuery`, `FromBody`, etc. attributes to tell ASP.NET where to bind the properties from.
 
 ```csharp
 [RoutedCommand("foo/{id}", "GET", "POST", Name = "MyCommand")]
