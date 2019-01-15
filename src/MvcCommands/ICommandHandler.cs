@@ -5,6 +5,6 @@ namespace MvcCommands
 {
     public interface ICommandHandler<TCommandModel>
     {
-        Task<IActionResult> ExecuteCommand(TCommandModel commandModel, Controller sender);
+        Task<IActionResult> ExecuteCommand(TCommandModel commandModel, ControllerBase sender);
     }
 }
