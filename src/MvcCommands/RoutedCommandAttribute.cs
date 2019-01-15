@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MvcCommands
 {
     [AttributeUsage(System.AttributeTargets.Class, Inherited = false, AllowMultiple = true)]
-    public sealed class RoutedCommandAttribute : Attribute
+    public class RoutedCommandAttribute : Attribute
     {
         public RoutedCommandAttribute(String route, params String[] methods)
         {

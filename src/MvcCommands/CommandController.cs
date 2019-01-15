@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace MvcCommands
 {
-    public class CommandController<TCommandModel> : Controller
+    public sealed class CommandController<TCommandModel> : Controller
     {
         public CommandController(ICommandHandler<TCommandModel> commandHandler)
         {
