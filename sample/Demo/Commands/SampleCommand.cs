@@ -17,8 +17,8 @@ namespace Demo
         [FromBody]
         public SampleBody Body { get; set; }
 
-        [FromHeader]
-        public String Accept { get; set; }
+        [FromHeader(Name="X-Custom-Header")]
+        public String XCustomHeader { get; set; }
 
         public class SampleBody
         {
