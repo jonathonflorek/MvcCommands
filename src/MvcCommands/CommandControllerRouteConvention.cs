@@ -11,21 +11,20 @@ namespace MvcCommands
     {
         public void Apply(ControllerModel controller)
         {
-            if (!IsCommandController(controller.ControllerType))
+            if (!controller.IsCommandController(out var commandModelType))
             {
                 return;
             }
 
-            var commandModelType = controller.ControllerType.GenericTypeArguments.Single();
             var action = controller.Actions.Single();
-            var selectors = 
+            var actionSelectors = 
                 from routedCommandAttribute in commandModelType.GetCustomAttributes<RoutedCommandAttribute>()
                 select new SelectorModel
                 {
                     AttributeRouteModel = new AttributeRouteModel
                     {
                         Template = routedCommandAttribute.Template,
-                        Name = routedCommandAttribute.Name,
+                        Name = routedCommandAttribute.RouteName,
                     },
                     ActionConstraints = 
                     {
@@ -39,16 +38,10 @@ namespace MvcCommands
                 action.Selectors.Remove(selector);
             }
 
-            foreach(var selector in selectors)
+            foreach(var selector in actionSelectors)
             {
                 action.Selectors.Add(selector);
             }
-        }
-
-        private Boolean IsCommandController(Type type)
-        {
-            return type.IsGenericType &&
-                type.GetGenericTypeDefinition() == typeof(CommandController<>);
         }
     }
 }

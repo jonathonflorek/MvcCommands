@@ -20,6 +20,7 @@ namespace Demo
 
             // manually register a command handler
             services.AddTransient<ICommandHandler<SampleCommand>, SampleHandler>();
+            services.AddTransient<ICommandHandler<OtherCommand>, OtherHandler>();
 
             // manually register the handler's dependencies
             services.AddSingleton(new SampleHandler.SampleHandlerOptions

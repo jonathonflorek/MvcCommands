@@ -16,6 +16,6 @@ namespace MvcCommands
 
         public IEnumerable<String> Methods { get; }
 
-        public String Name { get; set; }
+        public String RouteName { get; set; }
     }
 }

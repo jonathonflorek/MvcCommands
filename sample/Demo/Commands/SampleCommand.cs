@@ -5,7 +5,7 @@ using System;
 
 namespace Demo
 {
-    [RoutedCommand("demo/{id}", "POST")]
+    [RoutedCommand("demo/{id}", "POST", RouteName = "Sample")]
     public class SampleCommand
     {
         [FromRoute]
