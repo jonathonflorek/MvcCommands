@@ -17,9 +17,15 @@ namespace Demo
         {
             // tell MvcCommands to setup magic routing of requests to RoutedCommand handlers
             services.AddMvc().AddCommandControllerRouting();
-            
+
             // manually register a command handler
             services.AddTransient<ICommandHandler<SampleCommand>, SampleHandler>();
+
+            // manually register the handler's dependencies
+            services.AddSingleton(new SampleHandler.SampleHandlerOptions
+            {
+                DelayMilliseconds = 1000,
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

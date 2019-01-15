@@ -1,8 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <AssemblyName>MvcCommands</AssemblyName>
+    <PackageId>MvcCommands</PackageId>
+    <Description>A library enabling command-based architecture and eliminating the need for manual controller creation.</Description>
+    <Authors>Jonathon Florek</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/jonathonflorek/MvcCommands.git</RepositoryUrl>
+    <VersionPrefix>1.0.0-pre0</VersionPrefix>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>Latest</LangVersion>
+    <PackageTags>ASP.NET Core;Command;Commands;Routing</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
