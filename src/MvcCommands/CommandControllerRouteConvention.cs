@@ -7,11 +7,15 @@ using System.Reflection;
 
 namespace MvcCommands
 {
+    /// <summary>
+    /// Applies routing to command controllers based on the values in
+    /// routed command <see cref="RoutedCommandAttribute"/> attributes
+    /// </summary>
     public class CommandControllerRouteConvention : IControllerModelConvention
     {
         public void Apply(ControllerModel controller)
         {
-            if (!controller.IsCommandController(out var commandModelType))
+            if (!controller.TryGetRoutedCommand(out var commandModelType))
             {
                 return;
             }
@@ -25,10 +29,11 @@ namespace MvcCommands
                     {
                         Template = routedCommandAttribute.Template,
                         Name = routedCommandAttribute.RouteName,
+                        Order = routedCommandAttribute.Order,
                     },
                     ActionConstraints = 
                     {
-                        new HttpMethodActionConstraint(routedCommandAttribute.Methods),
+                        new HttpMethodActionConstraint(routedCommandAttribute.HttpMethods),
                     },
                 };
             

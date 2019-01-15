@@ -16,7 +16,7 @@ namespace Demo
         public void ConfigureServices(IServiceCollection services)
         {
             // tell MvcCommands to setup magic routing of requests to RoutedCommand handlers
-            services.AddMvc().AddCommandControllerRouting();
+            services.AddMvc().AddRoutedCommandControllers();
 
             // manually register a command handler
             services.AddTransient<ICommandHandler<SampleCommand>, SampleHandler>();

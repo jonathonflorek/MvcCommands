@@ -8,10 +8,10 @@ This library introduces the concepts of Routed Command and Command Handlers. A R
 
 ## Configuration
 
-To enable Routed Commands, invoke `AddCommandControllerRouting` after calling `AddMvc` in the `Startup` class's `ConfigureServices` method:
+To enable Routed Commands, invoke `AddRoutedCommandControllers` after calling `AddMvc` in the `Startup` class's `ConfigureServices` method:
 
 ```csharp
-services.AddMvc().AddCommandControllerRouting();
+services.AddMvc().AddRoutedCommandControllers();
 ```
 
 ## Routed Commands
@@ -36,6 +36,8 @@ public class MyCommand
     // other properties
 }
 ```
+
+The controller name of the controllers handling these commands will be the name of the command class, with the `Command` postfix removed if present. For example, the class names `SampleCommand` and `Sample` are both handled in a controller named `Sample`. The only action in this controller is the `Index` action.
 
 ## Command Handlers
 

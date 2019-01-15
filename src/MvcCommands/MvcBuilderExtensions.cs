@@ -2,14 +2,21 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace MvcCommands
 {
+    /// <summary>
+    /// Provides extension methods for <see cref="IMvcBuilder"/> instances.
+    /// </summary>
     public static class MvcBuilderExtensions
     {
-        public static IMvcBuilder AddCommandControllerRouting(this IMvcBuilder builder)
+        /// <summary>
+        /// Adds controllers for Routed Commands.
+        /// </summary>
+        public static IMvcBuilder AddRoutedCommandControllers(this IMvcBuilder builder)
         {
             return builder
                 .AddMvcOptions(opts => 
                 {
                     opts.Conventions.Add(new CommandControllerRouteConvention());
+                    opts.Conventions.Add(new CommandControllerNameConvention());
                 })
                 .ConfigureApplicationPartManager(manager =>
                 {

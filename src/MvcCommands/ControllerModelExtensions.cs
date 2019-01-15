@@ -6,7 +6,7 @@ namespace MvcCommands
 {
     public static class ControllerModelExtensions
     {
-        public static Boolean IsCommandController(this ControllerModel controller, out Type commandModelType)
+        public static Boolean TryGetRoutedCommand(this ControllerModel controller, out Type commandModelType)
         {
             var isCommandController = controller.ControllerType.IsGenericType &&
                 controller.ControllerType.GetGenericTypeDefinition() == typeof(CommandController<>);

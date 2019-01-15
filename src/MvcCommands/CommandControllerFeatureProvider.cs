@@ -6,6 +6,10 @@ using System.Reflection;
 
 namespace MvcCommands
 {
+    /// <summary>
+    /// Adds <see cref="CommandController"/> controllers for each type decorated with
+    /// the <see cref="RoutedCommandAttribute"/> attribute.
+    /// </summary>
     public class CommandControllerFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
     {
         public void PopulateFeature(IEnumerable<ApplicationPart> parts, ControllerFeature feature)
