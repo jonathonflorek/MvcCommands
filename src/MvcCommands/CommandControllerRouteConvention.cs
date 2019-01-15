@@ -22,7 +22,11 @@ namespace MvcCommands
                 from routedCommandAttribute in commandModelType.GetCustomAttributes<RoutedCommandAttribute>()
                 select new SelectorModel
                 {
-                    AttributeRouteModel = new AttributeRouteModel(new RouteAttribute(routedCommandAttribute.Route)),
+                    AttributeRouteModel = new AttributeRouteModel
+                    {
+                        Template = routedCommandAttribute.Template,
+                        Name = routedCommandAttribute.Name,
+                    },
                     ActionConstraints = 
                     {
                         new HttpMethodActionConstraint(routedCommandAttribute.Methods),
