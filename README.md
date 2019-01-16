@@ -29,7 +29,7 @@ To create a routed command, create a data class decorated with the `RoutedComman
 Decorate the class's properties with the `FromRoute`, `FromQuery`, `FromBody`, etc. attributes to tell ASP.NET where to bind the properties from.
 
 ```csharp
-[RoutedCommand("foo/{id}", "GET", "POST", Name = "MyCommand")]
+[RoutedCommand("foo/{id}", "GET", "POST", RouteName = "MyCommand")]
 public class MyCommand
 {
     [FromRoute]
