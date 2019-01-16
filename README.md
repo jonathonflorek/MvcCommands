@@ -1,10 +1,18 @@
 # MvcCommands
 
+https://github.com/jonathonflorek/MvcCommands
+
 A library enabling command-based architecture and eliminating the need for manual controller creation.
 
 ## Overview
 
 This library introduces the concepts of Routed Command and Command Handlers. A Routed Command is a DTO that defines the data to be sent from a client for a number of routes. A Command Handler is a service that processes an instance of this DTO and returns a result.
+
+## Installation
+
+Available on [Nuget](https://www.nuget.org/packages/MvcCommands). [![Nuget](http://img.shields.io/nuget/v/MvcCommands.svg)](https://www.nuget.org/packages/MvcCommands)
+
+`dotnet add package MvcCommands`
 
 ## Configuration
 
