@@ -6,7 +6,7 @@ namespace MvcCommands
     /// <summary>
     /// A generic command handling controller
     /// </summary>
-    public sealed class CommandController<TCommandModel> : ControllerBase
+    public class CommandController<TCommandModel> : ControllerBase
     {
         public CommandController(ICommandHandler<TCommandModel> commandHandler)
         {
